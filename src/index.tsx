@@ -1,11 +1,9 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import dva from 'dva';
 import './index.less';
 import registerServiceWorker from './registerServiceWorker';
-import Router from './Routes'
+import { routerConfig } from './Routes'
+const app = dva();
 
-ReactDOM.render(
-  <Router />,
-  document.getElementById('root') as HTMLElement
-);
+app.router(routerConfig);
+app.start('#root');
 registerServiceWorker();
